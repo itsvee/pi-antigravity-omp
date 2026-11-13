@@ -1,5 +1,15 @@
 # pi-antigravity
 
+OMP compatibility fork of [Rahularya01/pi-antigravity](https://github.com/Rahularya01/pi-antigravity), based on v0.13.0. Reference image validation runs locally without requiring Pi's `detectSupportedImageMimeTypeFromFile` host export.
+
+Install this fork on OMP:
+
+```bash
+omp plugin install https://github.com/itsvee/pi-antigravity-omp/archive/refs/heads/fix/omp-compatibility.tar.gz
+```
+
+Restart OMP after installation. The npm package below is maintained by upstream and does not include this fork's changes.
+
 [![npm version](https://img.shields.io/npm/v/pi-antigravity?logo=npm)](https://www.npmjs.com/package/pi-antigravity)
 [![npm downloads](https://img.shields.io/npm/dm/pi-antigravity?logo=npm)](https://www.npmjs.com/package/pi-antigravity)
 [![license](https://img.shields.io/npm/l/pi-antigravity)](LICENSE)

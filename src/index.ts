@@ -174,15 +174,21 @@ export default function (pi: ExtensionAPI): void {
   });
 
   const initialCatalog = getCurrentAntigravityCatalog();
+  // Older hosts treat every provider model as chat, including image-only entries.
+  const nativeImageModels =
+    "registerImagesApiProvider" in piAiCompat &&
+    typeof piAiCompat.registerImagesApiProvider === "function"
+      ? ANTIGRAVITY_IMAGE_MODELS
+      : [];
 
   const providerConfig = {
     name: PROVIDER_NAME,
     baseUrl: DEFAULT_ENDPOINT,
     api: ANTIGRAVITY_API,
-    models: [...initialCatalog.models, ...ANTIGRAVITY_IMAGE_MODELS],
+    models: [...initialCatalog.models, ...nativeImageModels],
     refreshModels: async (context: Parameters<typeof refreshAntigravityModels>[0]) => {
       const refreshed = await refreshAntigravityModels(context);
-      return [...refreshed, ...ANTIGRAVITY_IMAGE_MODELS];
+      return [...refreshed, ...nativeImageModels];
     },
     oauth: {
       name: PROVIDER_NAME,

@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- Load the reference-image tool on OMP without Pi's host-only MIME detection export. Image signatures, project path containment, symlink targets, and per-file size limits are validated locally.
+
 ## [0.13.0] - 2026-11-12
 
 ### Added
